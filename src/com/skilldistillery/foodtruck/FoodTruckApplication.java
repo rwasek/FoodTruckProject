@@ -17,37 +17,37 @@ public class FoodTruckApplication {
 
 		FoodTruckApplication trucks = new FoodTruckApplication();
 		trucks.createTrucks();
+		System.out.println("continue program");
 
 	}
 
 	public void createTrucks() {
 		for (int truckID = 0; truckID < truckFleet.length; truckID++) {
-
 			System.out.println("Please enter the Food Truck Name: ");
 			String name = kb.next();
-//				if (name.equalsIgnoreCase("Quit")) {
-//					truckID = 4;
-//					break;
-//				}
+			if (name.equalsIgnoreCase("quit")) {
+				break;
+//					displayTrucks();
+			}
 			System.out.println("Please enter the Food Truck type of cuisine: ");
 			String foodType = kb.next();
 			System.out.println("Please enter the Food Truck rating (1-5): ");
 			int rating = kb.nextInt();
-				
+
 			FoodTruck truck = new FoodTruck(name, foodType, rating);
 			truckFleet[truckID] = truck;
-			
 		}
-		
+
 		displayTrucks();
 	}
-	
+
 	public void displayTrucks() {
 //		display the array of food trucks that was created in the for loop createTrucks() method
 		for (FoodTruck foodTruck : truckFleet) {
-			
-			System.out.println(foodTruck.toString());
+			if (foodTruck != (null)) {
+				System.out.println(foodTruck.toString());
+			}
 		}
-		
+
 	}
 }
