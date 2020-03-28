@@ -1,42 +1,66 @@
 package com.skilldistillery.foodtruck;
 
-
 public class FoodTruck {
-	
-	
-//	private int numTrucks;
-//    private FoodTruck[] trucks; 
-//    private static int MAX_TRUCKS = 5;
-//    public FoodTruck() {
-//        trucks = new FoodTruck[MAX_TRUCKS];
-//    }
-	
-	
-	
+
 	private String truckName;
 	private String truckFoodType;
 	private int truckRating;
-	private static int uniqueID = 0;
+	private static int nextTruckID = 0;
+	private int uniqueID;
 
+	public String getTruckName() {
+		return truckName;
+	}
 
-public FoodTruck(String name, String foodType, int rating) {
-	truckName = name;
-	truckFoodType = foodType;
-	truckRating = rating;
-	uniqueID++;
+	public void setTruckName(String truckName) {
+		this.truckName = truckName;
+	}
+
+	public String getTruckFoodType() {
+		return truckFoodType;
+	}
+
+	public void setTruckFoodType(String truckFoodType) {
+		this.truckFoodType = truckFoodType;
+	}
+
+	public int getTruckRating() {
+		return truckRating;
+	}
+
+	public void setTruckRating(int truckRating) {
+		this.truckRating = truckRating;
+	}
+
+	public static int getNextTruckID() {
+		return nextTruckID;
+	}
+
+	public static void setNextTruckID(int nextTruckID) {
+		FoodTruck.nextTruckID = nextTruckID;
+	}
+
+	public int getUniqueID() {
+		return uniqueID;
+	}
+
+	public void setUniqueID(int uniqueID) {
+		this.uniqueID = uniqueID;
+	}
+
+	public FoodTruck(String name, String foodType, int rating) {
+		this.truckName = name;
+		this.truckFoodType = foodType;
+		this.truckRating = rating;
+		FoodTruck.nextTruckID++;
+		this.uniqueID = nextTruckID;
+	}
+
+	@Override
+	public String toString() {
+		return "Food Truck " + truckName + " food type: " + truckFoodType + " food truck rating: " + truckRating
+				+ " food truck Unique ID: " + uniqueID;
+
+	}
+
 }
-
-public String toString() {
-	return "Food Truck " + truckName + " food type: " + truckFoodType  
-			+ " food truck rating: " + truckRating + " food truck Unique ID: " + uniqueID;
-	
-}
-
-public void displayTrucks() {
-	String display = toString();
-	System.out.println(display);
-}
-
-}
-	
-

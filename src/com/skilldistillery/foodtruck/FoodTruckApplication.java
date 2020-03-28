@@ -4,32 +4,50 @@ import java.util.Scanner;
 
 public class FoodTruckApplication {
 
+	Scanner kb = new Scanner(System.in);
+
+	int MAX_TRUCKS = 5;
+	FoodTruck[] truckFleet = new FoodTruck[MAX_TRUCKS];
+
 	public static void main(String[] args) {
 		// TODO FoodTruck array to store up to 5 food trucks
 		// When created, constructor assigns a unique ID
 		// while loop for creation that stops with "QUIT"
 		System.out.println("Hello! Welcome to the customized Food Truck Application!");
-		Scanner kb = new Scanner(System.in);
 
-		int MAX_TRUCKS = 5;
-		FoodTruck[] truckFleet = new FoodTruck[MAX_TRUCKS];
+		FoodTruckApplication trucks = new FoodTruckApplication();
+		trucks.createTrucks();
 
-		for (int i = 0; i < truckFleet.length; i++) {
+	}
+
+	public void createTrucks() {
+		for (int truckID = 0; truckID < truckFleet.length; truckID++) {
 
 			System.out.println("Please enter the Food Truck Name: ");
 			String name = kb.next();
+//				if (name.equalsIgnoreCase("Quit")) {
+//					truckID = 4;
+//					break;
+//				}
 			System.out.println("Please enter the Food Truck type of cuisine: ");
 			String foodType = kb.next();
 			System.out.println("Please enter the Food Truck rating (1-5): ");
 			int rating = kb.nextInt();
-
+				
 			FoodTruck truck = new FoodTruck(name, foodType, rating);
-			truckFleet[0] = truck;
-
-			truck.displayTrucks();
+			truckFleet[truckID] = truck;
+			
 		}
-
-		kb.close();
-
+		
+		displayTrucks();
+	}
+	
+	public void displayTrucks() {
+//		display the array of food trucks that was created in the for loop createTrucks() method
+		for (FoodTruck foodTruck : truckFleet) {
+			
+			System.out.println(foodTruck.toString());
+		}
+		
 	}
 }
