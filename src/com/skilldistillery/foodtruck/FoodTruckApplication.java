@@ -19,15 +19,16 @@ public class FoodTruckApplication {
 
 	public void createTrucks() {
 		for (int truckID = 0; truckID < truckFleet.length; truckID++) {
-			System.out.println("Please enter the Food Truck Name: ");
-			String name = kb.next();
+			System.out.println("Please enter the Food Truck Name (Note: please press enter twice the first time): ");
+			String name = kb.nextLine() + kb.nextLine();
+					
+			
 			if (name.equalsIgnoreCase("quit")) {
 				break;
-//					displayTrucks();
 			}
 			
 			System.out.println("Please enter the Food Truck type of cuisine: ");
-			String foodType = kb.next();
+			String foodType = kb.nextLine();
 			System.out.println("Please enter the Food Truck rating (1-5): ");
 			int rating = kb.nextInt();
 
