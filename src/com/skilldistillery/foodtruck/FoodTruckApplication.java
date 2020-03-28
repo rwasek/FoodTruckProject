@@ -97,25 +97,27 @@ public class FoodTruckApplication {
 
 		double average = (double) ratingTotal / count;
 
-		System.out.println(average);
+		System.out.println("The average of all your trucks is: " + average);
 	}
 
 	public void highestRated() {
-		int prior = truckFleet[0].getTruckRating();
-		int highest = truckFleet[0].getTruckRating();
+		FoodTruck prior = truckFleet[0];
+		
+		FoodTruck highest = truckFleet[0];
 
 		for (int i = 0; i < truckFleet.length; i++) {
 			FoodTruck foodTruck = truckFleet[i];
 			if (foodTruck != null) {
-				if (prior > (truckFleet[i].getTruckRating())) {
-					prior = truckFleet[i].getTruckRating();
+				if (prior.getTruckRating() > (truckFleet[i].getTruckRating())) {
+					prior = truckFleet[i];
 				}
-				if (highest < truckFleet[i].getTruckRating()) {
-					highest = truckFleet[i].getTruckRating();
+				if (highest.getTruckRating() < truckFleet[i].getTruckRating()) {
+					highest = truckFleet[i];
 				}
-
+				
 			}
 		}
 		System.out.println("Highest rated truck is: " + highest);
+		
 	}
 }
