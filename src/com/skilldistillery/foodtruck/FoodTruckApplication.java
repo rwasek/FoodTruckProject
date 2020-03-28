@@ -17,7 +17,6 @@ public class FoodTruckApplication {
 
 		FoodTruckApplication trucks = new FoodTruckApplication();
 		trucks.createTrucks();
-		System.out.println("continue program");
 
 	}
 
@@ -38,7 +37,8 @@ public class FoodTruckApplication {
 			truckFleet[truckID] = truck;
 		}
 
-		displayTrucks();
+		displayMenu();
+
 	}
 
 	public void displayTrucks() {
@@ -49,5 +49,47 @@ public class FoodTruckApplication {
 			}
 		}
 
+	}
+
+	public void displayMenu() {
+		System.out.println("1. List all existing food trucks");
+		System.out.println("2. See the average rating of food trucks");
+		System.out.println("3. Display the highest-rated food truck");
+		System.out.println("4. Quit the program");
+		int choice = kb.nextInt();
+
+		switch (choice) {
+
+		case 1:
+			displayTrucks();
+			break;
+		case 2:
+			calculateAverage();
+
+		}
+
+	}
+
+	public void calculateAverage() {
+		int ratingTotal = 0;
+		int count = 0;
+//		for (FoodTruck foodTruck : truckFleet) {
+//			if (foodTruck != null) {
+//			ratingTotal += foodTruck.getTruckRating();
+//			count++;
+//			}
+//			
+//		}
+		for (int i = 0; i < truckFleet.length; i++) {
+			FoodTruck foodTruck = truckFleet[i];
+			if (foodTruck != null) {
+				ratingTotal += foodTruck.getTruckRating();
+				count++;
+			}
+		}
+
+		double average = (double) ratingTotal / count;
+
+		System.out.println(average);
 	}
 }
