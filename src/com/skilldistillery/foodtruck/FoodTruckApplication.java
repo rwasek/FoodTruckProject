@@ -19,7 +19,7 @@ public class FoodTruckApplication {
 
 	public void createTrucks() {
 		for (int truckID = 0; truckID < truckFleet.length; truckID++) {
-			System.out.println("Please Enter a Food Truck Name: ");
+			System.out.println("Please Enter a Food Truck Name (Note: type \"quit\" here to enter less than 5): ");
 			String name = kb.nextLine();
 
 			if (name.equalsIgnoreCase("quit")) {
