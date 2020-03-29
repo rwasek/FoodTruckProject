@@ -58,7 +58,7 @@ public class FoodTruck {
 
 	@Override
 	public String toString() {
-		return "Food Truck Unique ID: " + uniqueID + "). Food Truck Name: " + truckName + " / Food type: " 
+		return "Food Truck Unique ID: " + uniqueID + "). Food Truck Name: " + truckName + " / Food Cuisine Type: " 
 				+ truckFoodType + " / Food Truck Rating: " + truckRating + ".";
 				
 

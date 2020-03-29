@@ -19,25 +19,25 @@ public class FoodTruckApplication {
 
 	public void createTrucks() {
 		for (int truckID = 0; truckID < truckFleet.length; truckID++) {
-			System.out.println("Please enter the Food Truck Name (Note: please press enter twice the first time): ");
-			String name = kb.nextLine() + kb.nextLine();
-					
-			
+			System.out.println("Please Enter a Food Truck Name: ");
+			String name = kb.nextLine();
+
 			if (name.equalsIgnoreCase("quit")) {
 				break;
 			}
-			
-			System.out.println("Please enter the Food Truck type of cuisine: ");
+
+			System.out.println("Please Enter this Food Truck's type of Cuisine: ");
 			String foodType = kb.nextLine();
-			System.out.println("Please enter the Food Truck rating (1-5): ");
+			System.out.println("Please enter this Food Truck's rating (1-5): ");
 			int rating = kb.nextInt();
+			kb.nextLine();
 
 			FoodTruck truck = new FoodTruck(name, foodType, rating);
 			truckFleet[truckID] = truck;
-		
+
 		}
 		while (true) {
-		displayMenu();
+			displayMenu();
 		}
 
 	}
@@ -81,13 +81,7 @@ public class FoodTruckApplication {
 	public void calculateAverage() {
 		int ratingTotal = 0;
 		int count = 0;
-//		for (FoodTruck foodTruck : truckFleet) {
-//			if (foodTruck != null) {
-//			ratingTotal += foodTruck.getTruckRating();
-//			count++;
-//			}
-//			
-//		}
+
 		for (int i = 0; i < truckFleet.length; i++) {
 			FoodTruck foodTruck = truckFleet[i];
 			if (foodTruck != null) {
@@ -98,12 +92,12 @@ public class FoodTruckApplication {
 
 		double average = (double) ratingTotal / count;
 
-		System.out.println("The average of all your trucks is: " + average);
+		System.out.println("The average rating of all your trucks is: " + average);
 	}
 
 	public void highestRated() {
 		FoodTruck prior = truckFleet[0];
-		
+
 		FoodTruck highest = truckFleet[0];
 
 		for (int i = 0; i < truckFleet.length; i++) {
@@ -115,10 +109,10 @@ public class FoodTruckApplication {
 				if (highest.getTruckRating() < truckFleet[i].getTruckRating()) {
 					highest = truckFleet[i];
 				}
-				
+
 			}
 		}
-		System.out.println("Highest rated truck is: " + highest);
-		
+		System.out.println("The highest rated truck is: " + highest);
+
 	}
 }
