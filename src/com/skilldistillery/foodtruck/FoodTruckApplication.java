@@ -19,7 +19,7 @@ public class FoodTruckApplication {
 
 	public void createTrucks() {
 		for (int truckID = 0; truckID < truckFleet.length; truckID++) {
-			System.out.println("Please Enter a Food Truck Name (Note: type \"quit\" here to enter less than 5): ");
+			System.out.println("Please Enter a Food Truck Name (Note: type \"quit\" here to stop entry or enter less than 5): ");
 			String name = kb.nextLine();
 
 			if (name.equalsIgnoreCase("quit")) {
@@ -28,9 +28,10 @@ public class FoodTruckApplication {
 
 			System.out.println("Please Enter this Food Truck's type of Cuisine: ");
 			String foodType = kb.nextLine();
+			
 			System.out.println("Please enter this Food Truck's rating (1-5): ");
 			int rating = kb.nextInt();
-			kb.nextLine();
+			kb.nextLine(); // this is to absorb the extra line that occurred when the user returned their response to the first prompt
 
 			FoodTruck truck = new FoodTruck(name, foodType, rating);
 			truckFleet[truckID] = truck;
@@ -38,6 +39,7 @@ public class FoodTruckApplication {
 		}
 		while (true) {
 			displayMenu();
+			System.out.println();
 		}
 
 	}
