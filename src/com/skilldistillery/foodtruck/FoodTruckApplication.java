@@ -11,6 +11,7 @@ public class FoodTruckApplication {
 
 	public static void main(String[] args) {
 		System.out.println("Hello! Welcome to the customized Food Truck Application!");
+		System.out.println();
 
 		FoodTruckApplication trucks = new FoodTruckApplication();
 		trucks.createTrucks();
